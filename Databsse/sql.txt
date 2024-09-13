@@ -1,0 +1,97 @@
+CREATE DATABASE Computer_Science;
+CREATE TABLE Operating_System(
+     first_Name text;
+     last_Name text;
+     Fav_Color text;
+);
+INSERT INTO Operating_System
+VALUES
+("Ayush", "Raghuwanshi", "Yellow"),
+("Raj", "Chobey", "Red"),
+("Pritam", "Pathidar", "Pink");
+
+-> After this you have to run the code 
+
+SELECT * FROM Operating_System;
+
+-> IF you run this code you will get the table;
+
+SELECT first_Name, last_Name FROM Operating_System;
+
+-> if you run this code you will get only first_Name and last_Name Column
+
+-->> I want all records of students, who scored 61 in physics?
+
+SELECT * FROM Operating_System
+WHERE Fav_Color = "red";
+
+-> If you run this code you will get all Column but only who have Fav_Color red
+
+-->> I want all records who scored 64 in physics and 77 in maths?
+
+SELECT * FROM Operating_System
+WHERE physics = 64 AND maths = 77;
+
+
+--> LIKE Operator
+SELECT * FROM Operating_System
+WHERE name LIKE "A%";
+-> BY THIS you will get only names that start with 'A'
+
+--> get the details of students whoes names contain A
+SELECT * FROM Operating_System
+WHERE name LIKE "%A%";
+
+--> get the details of students whoes name second character is 'A'
+SELECT * FROM Operating_System
+WHERE name LIKE "_A%";
+
+
+--> get the details of students whoes name second last character is 'A'
+SELECT * FROM Operating_System
+WHERE name LIKE "%A_";
+
+--> I want details of physics marks but i want toppers first then other
+SELECT * FROM Operating_System
+ORDER BY physics DESC;
+
+-->Find Details of students who scored 91 in maths and out of that who topped in chemistry?
+SELECT * FROM Operating_System
+WHERE maths = 91 
+ORDER BY chemistry DESC;
+
+--> Find Details of the students in decs order of their name?
+SELECT * FROM Operating_System
+ORDER BY name DESC;
+
+--> Return Unique Class from table
+SELECT DISTINCT class FROM Operating_System;
+
+
+--> Total number of entries
+SELECT COUNT (*) WHERE physics = 61
+
+--> Return sum 
+SELECT sum(physics) FROM Operating_System;
+
+--> get me the sum of maths, physic, chemistry score?
+ 
+ SELECT sum(physic + chemistry + maths)
+ FROM Operating_System
+
+--> to Find max marks from table
+SELECT max(physic) FROM Operating_System
+
+
+
+ avg((maths + physic+ chemistry)/3)
+ AS Avg_Score_From_Table
+ FROM Operating_System;
+
+
+
+ 
+
+
+
+
